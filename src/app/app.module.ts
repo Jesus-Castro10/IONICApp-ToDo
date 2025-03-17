@@ -6,11 +6,28 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
+
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+import { setLogLevel } from 'firebase/app';
+import { LogLevel } from '@angular/fire';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CoreModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  provideFirebaseApp(() => initializeApp(environment.firebase)),
+  provideFirestore(() => getFirestore()),],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+  /**
+   *
+   */
+  constructor() {
+    setLogLevel("silent");
+  }
+}

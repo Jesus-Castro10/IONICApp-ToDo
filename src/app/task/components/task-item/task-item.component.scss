@@ -1,0 +1,41 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  margin-bottom: 12px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  border-left: 6px solid #4caf50;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #ffffff, #eef1f5);
+}
+
+.task-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.task-description {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.options-btn {
+  color: #777;
+}
+
+.options-btn:hover {
+  color: #333;
+}

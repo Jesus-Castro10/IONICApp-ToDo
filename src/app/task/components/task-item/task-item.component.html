@@ -1,0 +1,10 @@
+<ion-item>
+  <ion-checkbox slot="start" (ionChange)="toggleTask(task)" [checked]="task.done" color="success"></ion-checkbox>
+  <ion-label [ngClass]="{'completed': task.done}">
+    <h2 class="task-title">{{ task.title }}</h2>
+    <p class="task-description">{{ task.date }}</p>
+  </ion-label>
+  <ion-button fill="clear" class="options-btn" (click)="deleteTask(task.id)">
+    <ion-icon name="trash" color="danger"></ion-icon>
+  </ion-button>
+</ion-item>
