@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Firestore, collection, addDoc, collectionData, deleteDoc, doc, updateDoc, docData } from '@angular/fire/firestore';
 import { ITask } from 'src/app/interfaces/itask';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
