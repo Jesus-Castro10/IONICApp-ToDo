@@ -18,7 +18,8 @@ import { setLogLevel } from 'firebase/app';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CoreModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   provideFirebaseApp(() => initializeApp(environment.firebase)),
-  provideFirestore(() => getFirestore()),],
+  provideFirestore(() => getFirestore()),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

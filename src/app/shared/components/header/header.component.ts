@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   @Input() title: string = '';
+  @Input() isAdd: boolean = false;
+  @Input() isHome: boolean = false;
 
   constructor(private router: Router) { }
 

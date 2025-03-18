@@ -1,8 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Firestore, collection, addDoc, collectionData, deleteDoc, doc, updateDoc, docData } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, deleteDoc, doc, updateDoc, docData, setDoc } from '@angular/fire/firestore';
 import { ITask } from 'src/app/interfaces/itask';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +13,8 @@ export class TaskService {
 
   // constructor(private firestore: Firestore) { }
 
-  addTask(task: ITask): Promise<void> {
-    return addDoc(this.tasksCollection, task) as unknown as Promise<void>;
+  addTask(task: any) {
+    return addDoc(this.tasksCollection, task);
   }
 
   getTasks(): Observable<ITask[]> {
@@ -27,9 +26,9 @@ export class TaskService {
     return docData(taskDoc, { idField: 'id' }) as Observable<ITask>;
   }
 
-  updateTask(task: ITask): Promise<void> {
+  updateTask(task: any) {
     const taskDoc = doc(this.firestore, `task/${task.id}`);
-    return updateDoc(taskDoc, { ...task }) as unknown as Promise<void>;
+    return updateDoc(taskDoc, { ...task });
   }
 
   deleteTask(id: string): Promise<void> {
@@ -40,5 +39,9 @@ export class TaskService {
   markTaskAsDone(id: boolean): Promise<void> {
     const taskDoc = doc(this.firestore, `task/${id}`);
     return updateDoc(taskDoc, { done: true });
+  }
+
+  createIdDoc() {
+    return Math.random()
   }
 }

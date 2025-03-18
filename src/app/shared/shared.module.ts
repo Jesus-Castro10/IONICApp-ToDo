@@ -1,4 +1,3 @@
-import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -14,11 +13,12 @@ const IMPORTS = [
   ReactiveFormsModule
 ]
 
-const COMPONENTS = [DatePickerComponent, HeaderComponent]
+const COMPONENTS = [HeaderComponent]
 
 @NgModule({
   declarations: [...COMPONENTS, FormatDatePipe],
   imports: [...IMPORTS,],
   exports: [...IMPORTS, ...COMPONENTS, FormatDatePipe],
+  providers: []
 })
 export class SharedModule { }

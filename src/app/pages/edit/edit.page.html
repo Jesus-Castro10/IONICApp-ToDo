@@ -1,7 +1,7 @@
-<app-header [title]="'Save Task'" [isAdd]="true"></app-header>
+<app-header [title]="'Edit task'"></app-header>
 
-<ion-content [fullscreen]="true">
-  <form [formGroup]="taskForm" (ngSubmit)="save()">
+<ion-content>
+  <form [formGroup]="taskForm" (ngSubmit)="write()">
     <ion-card>
       <ion-card-content>
         <ion-item>
@@ -25,7 +25,7 @@
     </ion-card>
 
     <div class="button-container">
-      <ion-button expand="full" type="submit" color="primary" [disabled]="!taskForm.valid">Save</ion-button>
+      <ion-button expand="full" type="submit" color="primary" [disabled]="taskForm.valid">Update</ion-button>
     </div>
   </form>
 </ion-content>

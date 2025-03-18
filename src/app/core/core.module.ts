@@ -8,6 +8,6 @@ import { TaskService } from './services/task.service';
   imports: [
     CommonModule,
   ],
-  providers: [TaskService,]
+  providers: [TaskService]
 })
 export class CoreModule { }

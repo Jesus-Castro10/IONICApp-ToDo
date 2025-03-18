@@ -41,6 +41,6 @@ export class TaskItemComponent implements OnInit {
   }
 
   async navigate(task: ITask) {
-    this.router.navigate(["task-detail/" + task.id])
+    this.router.navigate(["edit/" + task.id])
   }
 }

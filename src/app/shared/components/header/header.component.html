@@ -1,12 +1,16 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
+      @if (!isHome) {
       <ion-back-button defaultHref="/home"></ion-back-button>
+      }
     </ion-buttons>
     <ion-buttons slot="end">
+      @if (!isAdd) {
       <a class="btn" href="save">
         <ion-icon name="add-circle"></ion-icon>
       </a>
+      }
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

@@ -1,10 +1,8 @@
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
-import { TaskFormComponent } from './components/task-form/task-form.component';
 
-const COMPONENTS = [TaskItemComponent, TaskFormComponent]
+const COMPONENTS = [TaskItemComponent]
 
 @NgModule({
   declarations: [...COMPONENTS],
