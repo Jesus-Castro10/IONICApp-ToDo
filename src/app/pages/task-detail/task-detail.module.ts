@@ -4,11 +4,13 @@ import { TaskDetailPageRoutingModule } from './task-detail-routing.module';
 
 import { TaskDetailPage } from './task-detail.page';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TaskModule } from 'src/app/task/task.module';
 
 @NgModule({
   imports: [
     SharedModule,
-    TaskDetailPageRoutingModule
+    TaskDetailPageRoutingModule,
+    TaskModule
   ],
   declarations: [TaskDetailPage]
 })

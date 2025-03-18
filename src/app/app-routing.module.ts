@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'task-detail/:id',
     loadChildren: () => import('./pages/task-detail/task-detail.module').then(m => m.TaskDetailPageModule)
   },
+  {
+    path: 'save',
+    loadChildren: () => import('./pages/save-task/save-task.module').then(m => m.SaveTaskPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { TaskService } from 'src/app/core/services/task.service';
 import { ITask } from 'src/app/interfaces/itask';
-import { Timestamp } from 'firebase/firestore';
+import { LoaderService } from 'src/app/shared/services/loader.service';
 
 @Component({
   selector: 'app-home',
@@ -14,15 +13,19 @@ export class HomePage implements OnInit {
 
   tasks!: ITask[];
 
-  constructor(private taskService: TaskService) {
-    this.taskService.getTasks().subscribe((tasks: ITask[]) => {
-      this.tasks = tasks;
-      console.log(this.tasks); // Aquí tendrás el array de ITask
-    });
+  constructor(private taskService: TaskService, private loader: LoaderService) {
+
   }
 
   ngOnInit() {
-
+    this.getTasks()
   }
 
+  async getTasks() {
+    await this.loader.show("Loadind tasks")
+    this.taskService.getTasks().subscribe((tasks: ITask[]) => {
+      this.tasks = tasks;
+      this.loader.hide()
+    });
+  }
 }

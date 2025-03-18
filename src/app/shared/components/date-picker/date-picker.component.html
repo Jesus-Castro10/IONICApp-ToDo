@@ -1,0 +1,24 @@
+@if (initialDate != undefined) {
+<ion-item-group>
+  <ion-label class="dob-label">Date</ion-label>
+  <div class="dob-container">
+    <ion-item class="dob-item">
+      <ion-select [(ngModel)]="day" (ionChange)="updateDate()" [placeholder]="day">
+        <ion-select-option *ngFor="let d of days">{{ d }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="dob-item">
+      <ion-select [(ngModel)]="month" (ionChange)="updateDate()" [placeholder]="months[month]">
+        <ion-select-option *ngFor="let m of months" [value]="months.indexOf(m)+1">{{ m }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="dob-item">
+      <ion-select [(ngModel)]="year" (ionChange)="updateDate()" [placeholder]="year">
+        <ion-select-option *ngFor="let y of years">{{ y }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+</ion-item-group>
+}
